@@ -50,10 +50,29 @@ def preparar_edicao(frame_tarefa, label_tarefa):
     global frame_em_edicao
     frame_em_edicao = frame_tarefa
     entrada_tarefa.delete(0, tk.END)
-    entrada_tarefa.insert(0, label_tarefa.cget())
+    entrada_tarefa.insert(0, label_tarefa.cget("text"))
 
-icon_editar = PhotoImage(file="imgs/edit.png").subsample(3, 3)
-icon_deletar = PhotoImage(file="imgs/delete.png").subsample(3, 3)
+def atualizar_tarefa(nova_tarefa):
+    global frame_em_edicao
+    for widget in frame_em_edicao.winfo_children():
+        if isinstance(widget, tk.Label):
+            widget.config(text=nova_tarefa)
+
+def deletar_tarefa(frame_tarefa):
+    frame_tarefa.destroy()
+    canvas_interior.update_idletasks()
+    canvas.config(scrollregion=canvas.bbox("all"))
+
+def alternar_sublinhado(label):
+    fonte_atual = label.cget("font")
+    if "overstrike" in fonte_atual:
+        nova_fonte = fonte_atual.replace(" overstrike", "")
+    else:
+        nova_fonte = fonte_atual + " overstrike"
+    label.config(font=nova_fonte)
+
+icon_editar = PhotoImage(file="imgs/edit.png").subsample(23, 23)
+icon_deletar = PhotoImage(file="imgs/delete.png").subsample(10, 10)
 
 fonte_cabecalho = font.Font(family="Garamond", size=24, weight="bold")
 rotulo_cabecalho = tk.Label(janela, text="Meu App de Tarefas",  font=fonte_cabecalho, bg="#F0F0F0", fg='#333').pack(pady=20)
@@ -63,6 +82,8 @@ frame.pack(pady=10)
 
 entrada_tarefa = tk.Entry(frame, font=("Garamond", 14), relief=tk.FLAT, bg="White", fg="grey", width=30)
 entrada_tarefa.pack(side=tk.LEFT, padx=10)
+entrada_tarefa.bind("<Return>", lambda event: adicionar_tarefa())
+
 
 botao_adicionar = tk.Button(frame, command=adicionar_tarefa, text="Adicionar Tarefa", bg="#4CAF50", fg="white", height=1, width=15, font=("Arial", 11), relief=tk.FLAT)
 botao_adicionar.pack(side=tk.LEFT, padx=10)
