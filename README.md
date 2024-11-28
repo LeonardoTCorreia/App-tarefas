@@ -1,6 +1,6 @@
 # Gerenciador de Tarefas
 
-Este é um simples **Gerenciador de Tarefas** criado com **Tkinter**. Ele permite adicionar, editar, marcar como concluída e excluir tarefas de maneira fácil e intuitiva.
+Este é um simples **Gerenciador de Tarefas** desenvolvido em Python com a biblioteca **Tkinter**. Ele permite adicionar, editar, marcar como concluída e excluir tarefas de maneira fácil e intuitiva.
 
 ## Funcionalidades
 
