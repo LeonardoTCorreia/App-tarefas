@@ -22,9 +22,30 @@ Para instalar as bibliotecas (caso precise), execute o seguinte comando:
 
 ```bash
 pip install -r requirements.txt
+```
 
-### Vídeo demonstrativo:
+### Como Rodar?
 
+Clone este repositório:
 
-https://github.com/user-attachments/assets/a7aedcdf-f82e-419f-acfe-4478a6221394
+```bash
+git clone https://github.com/SEU_USUARIO/nome-do-repositorio.git
+```
+
+Navegue até a pasta do projeto:
+
+```bash
+cd nome-do-repositorio
+```
+
+Execute o arquivo:
+
+```bash
+python main.py
+```
+
+### Vídeo de exibição das funcionalidades do app:
+
+https://github.com/user-attachments/assets/afb0868e-6341-4133-b3c1-5b0252fea3b7
+
 
